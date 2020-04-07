@@ -4,9 +4,9 @@ public class ProgramOffered
 {
 	private String programName;
 	private String description;
-	private String applicantEligibility;
+	private double applicantEligibility;
 	
-	public ProgramOffered(String programName, String description,String applicantEligibility)
+	public ProgramOffered(String programName, String description,double applicantEligibility)
 	{
 		super();
 		this.programName = programName;
@@ -27,11 +27,11 @@ public class ProgramOffered
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getApplicantEligibility() {
+	public double getApplicantEligibility() {
 		return applicantEligibility;
 	}
 	
-	public void setApplicantEligibility(String applicantEligibility) {
+	public void setApplicantEligibility(double applicantEligibility) {
 		this.applicantEligibility = applicantEligibility;
 	}
 	

@@ -24,7 +24,7 @@ public class Validation {
 	}
 	public static boolean dateOfBirthValidation(String dateOfBirth)
 	{
-		String pattern = "[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4";
+		String pattern = "[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}";
 		if(dateOfBirth.matches(pattern))
 		{
 			return true;
