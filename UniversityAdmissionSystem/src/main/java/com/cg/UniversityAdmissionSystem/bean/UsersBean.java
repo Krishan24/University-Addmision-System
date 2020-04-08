@@ -1,6 +1,6 @@
 package com.cg.UniversityAdmissionSystem.bean;
 
-public class Users {
+public class UsersBean {
 	
 	private String loginId;
 	private String password;
@@ -8,7 +8,7 @@ public class Users {
 	
 	
 	
-	public Users() {
+	public UsersBean() {
 		
 		this.loginId = loginId;
 		this.password = password;

@@ -3,7 +3,7 @@ package com.cg.UniversityAdmissionSystem.bean;
 
 import java.util.Date;
 
-public class Student 
+public class ApplicationBean 
 {
 	private String FName;
 	private String LName;
@@ -16,7 +16,7 @@ public class Student
 	
 	
 	
-public Student(String FName, String LName, Date DOB, String FatherName, String Email, long MobNO, double SSC, double HSC) {
+public ApplicationBean(String FName, String LName, Date DOB, String FatherName, String Email, long MobNO, double SSC, double HSC) {
 	
 	this.FName = FName;
 	this.LName = LName;

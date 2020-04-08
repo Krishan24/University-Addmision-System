@@ -2,7 +2,7 @@ package com.cg.UniversityAdmissionSystem.service;
 
 import java.util.List;
 
-import com.cg.UniversityAdmissionSystem.bean.Student;
+import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
 
 public class MacServiceImpl implements IMacService {
 
@@ -11,7 +11,7 @@ public class MacServiceImpl implements IMacService {
 		return null;
 	}
 
-	public boolean updateApplication(Student stu) {
+	public boolean updateApplication(ApplicationBean stu) {
 		// TODO Auto-generated method stub
 		return false;
 	}

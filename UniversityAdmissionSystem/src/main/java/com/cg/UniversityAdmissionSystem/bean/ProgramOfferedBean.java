@@ -1,12 +1,12 @@
 package com.cg.UniversityAdmissionSystem.bean;
 
-public class ProgramOffered 
+public class ProgramOfferedBean 
 {
 	private String programName;
 	private String description;
 	private double applicantEligibility;
 	
-	public ProgramOffered(String programName, String description,double applicantEligibility)
+	public ProgramOfferedBean(String programName, String description,double applicantEligibility)
 	{
 		super();
 		this.programName = programName;
