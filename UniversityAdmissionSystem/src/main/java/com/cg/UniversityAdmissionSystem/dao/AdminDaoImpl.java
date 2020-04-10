@@ -1,5 +1,7 @@
 package com.cg.UniversityAdmissionSystem.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
@@ -8,34 +10,41 @@ import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
 
 public class AdminDaoImpl implements IAdminDao{
 
+	List<ProgramOfferedBean> proOffList=new ArrayList<ProgramOfferedBean>();
+	List<ProgramScheduledBean> proSchList=new ArrayList<ProgramScheduledBean>();
+	List<String> ProNameList = new ArrayList<String>();
+	
 	public void addProgramOffered(ProgramOfferedBean pOffered) {
-		// TODO Auto-generated method stub
+		proOffList.add(pOffered);
 		
 	}
 
 	public boolean deleteProgramOffered(String programName) {
-		// TODO Auto-generated method stub
-		return false;
+		proOffList.remove(programName);
+		return true;
 	}
 
 	public boolean deleteProgramScheduled(String programId) {
-		// TODO Auto-generated method stub
-		return false;
+		proSchList.remove(programId);
+		return true;
 	}
 
 	public int addProgramScheduled(ProgramScheduledBean pScheduled) {
-		// TODO Auto-generated method stub
-		return 0;
+		proSchList.add(pScheduled);
+		return 1;
 	}
 
 	public List<ProgramScheduledBean> getAllDetails() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return proSchList;
 	}
 
 	public List<String> getAllProgramName() {
-		// TODO Auto-generated method stub
-		return null;
+		Iterator iterator = proSchList.iterator();
+		while(iterator.hasNext()){
+			  ProNameList.add(((ProgramOfferedBean) iterator.next()).getProgramName());
+			}
+		return ProNameList;
 	}
 
 	public List<String> getAllScheduleNames() {

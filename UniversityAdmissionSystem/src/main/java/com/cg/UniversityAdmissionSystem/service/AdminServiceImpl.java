@@ -1,6 +1,5 @@
 package com.cg.UniversityAdmissionSystem.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;

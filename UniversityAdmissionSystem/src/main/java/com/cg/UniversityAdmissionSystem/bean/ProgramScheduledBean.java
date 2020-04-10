@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class ProgramScheduledBean 
 {
-	private String programName;
+	private String shProgramName;
 	private String location;
 	private Date startDate;
 	private Date endDate;
 	
-	public String getProgramName() {
-		return programName;
+	public String getShProgramName() {
+		return shProgramName;
 	}
-	public void setProgramName(String programName) {
-		this.programName = programName;
+	public void setShProgramName(String programName) {
+		this.shProgramName = programName;
 	}
 	public String getLocation() {
 		return location;
@@ -35,7 +35,7 @@ public class ProgramScheduledBean
 	}
 	@Override
 	public String toString() {
-		return "ScheduledProgram [programName=" + programName + ", location=" + location + ", startDate=" + startDate
+		return "ScheduledProgram [programName=" + shProgramName + ", location=" + location + ", startDate=" + startDate
 				+ ", endDate=" + endDate + "]";
 	}
 	
