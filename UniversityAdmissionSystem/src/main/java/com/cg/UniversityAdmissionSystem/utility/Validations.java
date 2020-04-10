@@ -1,38 +1,17 @@
-package com.cg.UniversityAdmissionSystem.service;
+package com.cg.UniversityAdmissionSystem.utility;
 
-import java.util.List;
-
-import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
-import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
-
-public class ApplicantServiceImpl implements IApplicanttService{
-
-	public List<ProgramScheduledBean> showProgramScheduled() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int addDetail(ApplicationBean ab) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public ApplicationBean showStatus(int applicationId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class Validations {
 	
-	public static boolean firstNameValidation(String fname)
+	public static boolean firstNameValidation(String firstName)
 	{
 		String pattern = "[A-Z][A-Za-z]{3,20}";
-		if(fname.matches(pattern))
+		if(firstName.matches(pattern))
 		{
 			return true;
 		}
 		else
 			return false;
 	}
-	
 	public static boolean lastNameValidation(String lastName)
 	{
 		String pattern = "[A-Z][A-Za-z]{4,20}";
@@ -43,19 +22,16 @@ public class ApplicantServiceImpl implements IApplicanttService{
 		else
 			return false;
 	}
-	
 	public static boolean dateOfBirthValidation(String dateOfBirth)
 	{
-		String pattern = "[0-3][0-9]/[a-zA-Z]{3}/[0-9]{4}";
+		String pattern = "[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}";
 		if(dateOfBirth.matches(pattern))
 		{
 			return true;
 		}
 		else
 			return false;
-
 	}
-	
 	public static boolean fatherNameValidation(String fatherName)
 	{
 		String pattern = "[A-Za-z]{4,30}";
@@ -66,8 +42,6 @@ public class ApplicantServiceImpl implements IApplicanttService{
 		else
 			return false;
 	}
-	
-	
 	public static boolean emailValidation(String email)
 	{
 		String pattern = "[A-Za-z]{4,20}[@]{1}[gmail]{5}[.com]{4}";
@@ -78,10 +52,9 @@ public class ApplicantServiceImpl implements IApplicanttService{
 		else
 			return false;
 	}
-	
 	public static boolean mobileNumberValidation(String mobileNumber)
 	{
-		String pattern = "^\\+(?:[0-9] ?) {6,14}[0-9]$";
+		String pattern = "{9}{1}-[6-9]{1}[0-9]{9}";
 		if(mobileNumber.matches(pattern))
 		{
 			return true;
@@ -89,11 +62,36 @@ public class ApplicantServiceImpl implements IApplicanttService{
 		else
 			return false;
 	}
+	public static boolean userNameValidation(String userName)
+	{
+		String pattern = "[A-Za-z]{4,20}[@]{1}[gmail]{5}[.com]{4}";
+		if(userName.matches(pattern))
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+	public static boolean passwordValidation(String password)
+	{
+		String pattern = "[A-Za-z]{3,6}[0-9]{2}[@#$%&*]{1}";
+		if(password.matches(pattern))
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+	public static boolean optionValidate(String option) {
+		String pattern = "[1-4]{1}";
+		if(option.matches(pattern))
+			return true;
+		else
+		return false;
+	}
 	
 	
-	
-	
-	
-
-
 }
+
+
+

@@ -9,11 +9,13 @@ public class ApplicantDaoImp implements IApplicantDao {
 
 	public int addDetail(ApplicationBean ab) {
 		// TODO Auto-generated method stub
-		return 0;
+		return (Integer) null;
+		
 	}
 
 	public ApplicationBean showStatus(int applicationId) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

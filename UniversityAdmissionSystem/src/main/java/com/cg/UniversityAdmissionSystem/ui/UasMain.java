@@ -60,6 +60,7 @@ public class UasMain {
 			case 4:
 				
 						System.out.println("Thanks for visiting!!!");
+						StudentConsole sc = new StudentConsole();
 						break;
 						
 			}
