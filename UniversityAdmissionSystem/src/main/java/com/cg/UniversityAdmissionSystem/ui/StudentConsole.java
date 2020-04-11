@@ -164,6 +164,20 @@ public class StudentConsole {
 					
 					
 					
+					System.out.println("Please see below programs");
+					programScheduled = appServices.showProgramScheduled();
+					
+					if(programScheduled.isEmpty()){
+						System.out.println("No program Available");
+						continue;
+					}
+						for (ProgramScheduledBean pBean : programScheduled) {
+							System.out.println(pBean);
+					}
+					
+					
+					
+					
 					
 					
 					
@@ -186,7 +200,7 @@ public class StudentConsole {
 				
 	}
 	
-}	
+	}	
 	
 
 					

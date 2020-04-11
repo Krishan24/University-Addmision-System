@@ -10,7 +10,7 @@ public class ApplicationBean
 	private Date DOB;
 	private String FatherName;
 	private String Email;
-	private long MobNO;
+	private String Goals;
 	private double SSC;
 	private double HSC;
 	
@@ -23,7 +23,7 @@ public ApplicationBean(String FName, String LName, Date DOB, String FatherName, 
 	this.DOB = DOB;
 	this.FatherName = FatherName;
 	this.Email = Email;
-	this.MobNO = MobNO;
+	this.Goals = Goals;
 	this.SSC = SSC;
 	this.HSC = HSC;
 	
@@ -62,11 +62,11 @@ public ApplicationBean(String FName, String LName, Date DOB, String FatherName, 
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public long getMobNO() {
-		return MobNO;
+	public String getGoals() {
+		return Goals;
 	}
-	public void setMobNO(long mobNO) {
-		MobNO = mobNO;
+	public void setGoals(String goals) {
+		Goals = goals;
 	}
 	public double getSSC() {
 		return SSC;
@@ -80,11 +80,17 @@ public ApplicationBean(String FName, String LName, Date DOB, String FatherName, 
 	public void setHSC(double hSC) {
 		HSC = hSC;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Student [FName=" + FName + ", LName=" + LName + ", DOB=" + DOB + ", FatherName=" + FatherName
-				+ ", Email=" + Email + ", MobNO=" + MobNO + ", SSC=" + SSC + ", HSC=" + HSC + "]";
+		return "ApplicationBean [FName=" + FName + ", LName=" + LName + ", DOB=" + DOB + ", FatherName=" + FatherName
+				+ ", Email=" + Email + ", Goals=" + Goals + ", SSC=" + SSC + ", HSC=" + HSC + "]";
 	}
+	
+	
+	
+	
 	
 }
 	
