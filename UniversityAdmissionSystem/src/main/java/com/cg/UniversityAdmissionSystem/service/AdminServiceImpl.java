@@ -67,5 +67,15 @@ public class AdminServiceImpl implements IAdminService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public static boolean validateDate(String date) {
+		String pattern = "[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}";
+		if(date.matches(pattern))
+		{
+			return true;
+		}
+		else
+			return false;
+	}
 	
 }
