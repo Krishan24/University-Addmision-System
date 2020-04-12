@@ -11,6 +11,11 @@ public class UsersBean {
 	
 	public UsersBean() {
 		
+		
+	}
+	
+	public UsersBean(String loginId, String password, String role) {
+		super();
 		this.loginId = loginId;
 		this.password = password;
 		this.role = role;

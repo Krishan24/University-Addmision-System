@@ -1,7 +1,11 @@
 package com.cg.UniversityAdmissionSystem.ui;
+import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
 import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
 import com.cg.UniversityAdmissionSystem.service.ApplicantServiceImpl;
 import com.cg.UniversityAdmissionSystem.service.IApplicanttService;
+import com.cg.UniversityAdmissionSystem.service.IMacService;
+import com.cg.UniversityAdmissionSystem.service.MacServiceImpl;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -18,12 +22,12 @@ public class StudentConsole
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		String fname,lname,dob, FatherName,email,num = null;
-		int num1;
-		boolean flag = true;
+		String fname,dob,email,highestQualification, goals;
+		
+		boolean flag = true, flag1=true;
 		LocalDate dateOfBirth=null;
-		double SSCMarks = 0.0;
-		double HSCMarks = 0.0;
+		double marksObtained;
+		
 		
 		int choice = -1;
 		
@@ -62,9 +66,9 @@ public class StudentConsole
 					
 				do
 				{
-					System.out.println("Enter your First Name as per the 10th Marksheet ");
+					System.out.println("Enter your Full Name as per the 10th Marksheet ");
 					fname = scr.nextLine();
-					flag = ApplicantServiceImpl.firstNameValidation(fname);
+					flag = ApplicantServiceImpl.fullNameValidation(fname);
 					if(flag==false)
 					{
 						System.out.println("Name should be entered less than 20 character and first letter is capital");
@@ -73,18 +77,7 @@ public class StudentConsole
 				while(flag==false);
 				
 				
-//				lname = scr.nextLine();
-				do
-				{
-					System.out.println("Enter your Last Name as per the 10th Marksheet ");
-					lname = scr.next();
-					flag = ApplicantServiceImpl.lastNameValidation(lname);
-					if(flag==false)
-					{
-						System.out.println("Name should be entered less than 20 character and first letter is capital");
-					}
-				}
-				while(flag==false);
+
 				
 				do
 				{
@@ -102,22 +95,9 @@ public class StudentConsole
 				dateOfBirth = LocalDate.parse(dob,format);
 				dob = scr.nextLine();
 				
-				do
-				{
-					System.out.println("Enter your Father Name as per the 10th Marksheet ");
-					FatherName = scr.next();
-					flag = ApplicantServiceImpl.fatherNameValidation(FatherName);
-					if(flag==false)
-					{
-						System.out.println("Name should be entered less than 20 character and first letter is capital");
-					}
-				}
-				while(flag==false);
+
 				
-				
-				
-				
-					System.out.println("Enter your Email ID");
+				System.out.println("Enter your Email ID");
 					email = scr.next();
 					while(!ApplicantServiceImpl.emailValidation(email))
 					{
@@ -127,88 +107,114 @@ public class StudentConsole
 					}
 					
 					
+					System.out.println("Enter your Highest Qualification");
 					do
 					{
-						System.out.println("Enter your Mobile Number");
-						num = scr.next();
-						flag = ApplicantServiceImpl.mobileNumberValidation(num);
-						if(flag==false)
-						{
-						
-							System.err.println("Enter correct phone number");
-						}
-							
+					highestQualification =scr.nextLine();
+					flag = ApplicantServiceImpl.highestqualification(highestQualification);
+					if(flag==false) {
+						System.err.println("Length should be less than 10");
 					}
-					while(flag==false);
-						
+					}while(flag==false);
 					
 					
-					num1 = Integer.parseInt(num);
-					num = scr.nextLine();
 					
-					
-					System.out.println("Enter you SSC Marks");
+					System.out.println("Enter your Marks");
 					do
 					{
-						if(scr.hasNextDouble()) 
-						{
-							SSCMarks = scr.nextDouble();
+						if(scr.hasNextDouble()) {
+							marksObtained = scr.nextDouble();
 							flag=true;
-						}else 
-						{
-							System.out.println("Please enter a marks in number");
+						}else {
+							System.out.println("Enter the marks in the number");
 							scr.next();
 							flag=false;
-							
-							
 						}
-					}
-					while(flag==false);
+					}while(flag==false);
 					
 					
-					System.out.println("Enter you HSC Marks");
+					
+					
+					System.out.println("Enter your Goals");
 					do
 					{
-						if(scr.hasNextDouble())
-						{
-							HSCMarks = scr.nextDouble();
-							flag=true;
-						}else
-						{
-							System.out.println("Please enter a marks in number");
-							scr.next();
-							flag=false;
-							
-							
-						}
+					goals =scr.nextLine();
+					flag = ApplicantServiceImpl.goalsValidation(goals);
+					if(flag==false) {
+						System.err.println("Define Goals in less then 20 characters");
 					}
-					while(flag==false);
+					}while(flag==false);
 					
 					
-		
+					
+					
 					
 					System.out.println("Please see below programs");
 					programScheduled = appServices.showProgramScheduled();
 					
-					if(programScheduled.isEmpty())
-					{
+					if(programScheduled.isEmpty()){
 						System.out.println("No program Available");
-						//continue;
+						continue;
 					}
+					
 					for (ProgramScheduledBean pBean : programScheduled)
 						{
 							System.out.println(pBean);
 						}
 					
+					String scheduledProgramId = null;
+					IMacService macservice = new MacServiceImpl();
+					System.out.println("Enter program scheduled ID from the above table");
+					flag1=false;
+					
+					do
+					{
+						scheduledProgramId = scr.next();
+						flag = MacServiceImpl.validateScheduledId(scheduledProgramId);
+						if(!flag) {
+							System.out.println("Scheduled ID should be in number and less than 5 digit");
+							flag=true;
+						}else {
+							List<String> clist = macservice.getScheduleId();
+							if(clist.contains(scheduledProgramId )) {
+								flag=false;
+								flag1=true;
+							}else {
+								System.out.println("No such ID found");
+								System.out.println("Press 1 to enter other Id otherwise press any key");
+								if("1".equals(scr.next())) {
+									flag= true;
+									System.out.println("Enter program scheduled ID from the above table");
+								}else {
+									flag=false;
+								}
+							}
+							
+						}while(flag=false);
+						if(!flag1) {
+							break;
+						}
+						
+						ApplicationBean applicationbean = new ApplicationBean();
+						applicationbean.setFullName(fname);
+						applicationbean.
+						applicationbean
+						applicationbean
+						applicationbean
+						applicationbean
+						applicationbean
+					}
+					
+					
 				
-				
-				System.out.println("hii");
-	
-	
+					
+		}
 	}
 }
-}	
-
+				
+	
+	
+					
 
 	
 
