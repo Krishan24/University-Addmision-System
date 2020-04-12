@@ -77,5 +77,30 @@ public class AdminServiceImpl implements IAdminService {
 		else
 			return false;
 	}
+
+	public static boolean validateEligibility(String eligible) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean validateProgramDescription(String pDesc) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public List<String> getAllScheduleId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean validateLocation(String location) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean generateParticipants(List<ApplicationBean> confirmList) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

@@ -8,16 +8,16 @@ public class ProgramScheduledBean
 	private String scheduledProgramId;
 	private String programName;
 	private String location;
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private Date startDate;
+	private Date endDate;
 	private int sessionsPerWeek;
 
-	ProgramScheduledBean() {
+	public ProgramScheduledBean() {
 
 	}
 
-	public ProgramScheduledBean(String scheduledProgramId, String programName, String location, LocalDate startDate,
-			LocalDate endDate, int sessionsPerWeek) {
+	public ProgramScheduledBean(String scheduledProgramId, String programName, String location, Date startDate,
+			Date endDate, int sessionsPerWeek) {
 		super();
 		this.scheduledProgramId = scheduledProgramId;
 		this.programName = programName;
@@ -51,20 +51,20 @@ public class ProgramScheduledBean
 		this.location = location;
 	}
 
-	public LocalDate getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
+	public void setStartDate(Date date2) {
+		this.startDate = date2;
 	}
 
-	public LocalDate getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
-		this.endDate = endDate;
+	public void setEndDate(Date date3) {
+		this.endDate = date3;
 	}
 
 	public int getSessionsPerWeek() {
@@ -80,6 +80,11 @@ public class ProgramScheduledBean
 		return "scheduledProgramId = " + scheduledProgramId + ", programName = " + programName + ", location = "
 				+ location + ", startDate = " + startDate + ", endDate = " + endDate + ", sessionsPerWeek = "
 				+ sessionsPerWeek;
+	}
+
+	public void setSessionPerWeek(int sessionPerWeek) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

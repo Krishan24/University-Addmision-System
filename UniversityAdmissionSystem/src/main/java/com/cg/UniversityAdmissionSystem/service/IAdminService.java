@@ -23,6 +23,10 @@ public interface IAdminService {
 	public List<ApplicationBean> getAllConfirmedApplicants();
 	public List<ProgramOfferedBean> getOfferedProgram();
 	public List<ProgramScheduledBean> getScheduledProgListForProg(String prog) ;
+	public boolean validateProgramDescription(String pDesc);
+	public List<String> getAllScheduleId();
+	public boolean validateLocation(String location);
+	public boolean generateParticipants(List<ApplicationBean> confirmList);
 
 
 }

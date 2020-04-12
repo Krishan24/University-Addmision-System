@@ -8,7 +8,7 @@ public class ProgramOfferedBean
 	private int duration;
 	private String degreeCertificateOffered;
 
-	ProgramOfferedBean() {
+	public ProgramOfferedBean() {
 
 	}
 
@@ -67,6 +67,16 @@ public class ProgramOfferedBean
 		return "programName = " + programName + ", description = " + description + ", applicantEligibility = "
 				+ applicantEligibility + ", duration = " + duration + ", degreeCertificateOffered = "
 				+ degreeCertificateOffered;
+	}
+
+	public void setApplicantEligiblity(String eligible) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDegreeCertificate(String next) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

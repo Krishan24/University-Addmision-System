@@ -48,4 +48,9 @@ public class MacServiceImpl implements IMacService {
 		 return false;
 	}
 
+	public List<String> getscheduleId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

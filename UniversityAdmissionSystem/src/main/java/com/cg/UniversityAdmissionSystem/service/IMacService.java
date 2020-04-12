@@ -13,5 +13,6 @@ public interface IMacService {
 		public List<ApplicationBean> getApplicantAfterInterviewOnId(String scheduledProgramId);
 		public String updateApplicantStatus(int applicationId, String status);
 		public void updateApplicantDateOfInterview(int applicationId, LocalDate dateOfInterview);
+		public List<String> getscheduleId();
 		
 }
