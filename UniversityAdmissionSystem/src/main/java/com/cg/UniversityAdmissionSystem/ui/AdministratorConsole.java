@@ -26,6 +26,7 @@ public class AdministratorConsole {
 		sc = new Scanner(System.in);
 		System.out.println("Welcome "+userName);
 		System.out.println("Choose an operation");
+		System.out.println("test");
 	}
 	
 	
