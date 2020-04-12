@@ -1,4 +1,5 @@
 package com.cg.UniversityAdmissionSystem.ui;
+import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
 import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
 import com.cg.UniversityAdmissionSystem.service.ApplicantServiceImpl;
 import com.cg.UniversityAdmissionSystem.service.IApplicanttService;
@@ -170,13 +171,40 @@ public class StudentConsole
 					{
 						scheduledProgramId = scr.next();
 						flag = MacServiceImpl.validateScheduledId(scheduledProgramId);
-						if(!flag1) {
+						if(!flag) {
 							System.out.println("Scheduled ID should be in number and less than 5 digit");
-							flag1=true;
+							flag=true;
 						}else {
+							List<String> clist = macservice.getScheduleId();
+							if(clist.contains(scheduledProgramId )) {
+								flag=false;
+								flag1=true;
+							}else {
+								System.out.println("No such ID found");
+								System.out.println("Press 1 to enter other Id otherwise press any key");
+								if("1".equals(scr.next())) {
+									flag= true;
+									System.out.println("Enter program scheduled ID from the above table");
+								}else {
+									flag=false;
+								}
+							}
 							
+						}while(flag=false);
+						if(!flag1) {
+							break;
 						}
+						
+						ApplicationBean applicationbean = new ApplicationBean();
+						applicationbean.setFullName(fname);
+						applicationbean.
+						applicationbean
+						applicationbean
+						applicationbean
+						applicationbean
+						applicationbean
 					}
+					
 					
 				
 					
