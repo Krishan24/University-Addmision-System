@@ -68,7 +68,7 @@ public class UasMain {
 		
 	while(choice!=4);
 	scr.close();
-	
+	System.out.println("check");
 }
 }
 				
