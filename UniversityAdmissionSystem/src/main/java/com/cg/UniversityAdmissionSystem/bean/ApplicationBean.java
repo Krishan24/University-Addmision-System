@@ -1,6 +1,5 @@
 
 package com.cg.UniversityAdmissionSystem.bean;
-
 import java.time.LocalDate;
 
 
