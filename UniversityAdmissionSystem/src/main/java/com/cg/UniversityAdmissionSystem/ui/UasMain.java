@@ -2,6 +2,8 @@ package com.cg.UniversityAdmissionSystem.ui;
 
 import java.util.Scanner;
 
+import com.cg.UniversityAdmissionSystem.bean.UsersBean;
+
 public class UasMain {
 
 	public static void main(String[] args) {
@@ -43,6 +45,10 @@ public class UasMain {
 						loginId = scr.next();
 						System.out.println("Enter Password : ");
 						password = scr.next();
+						UsersBean userBeanMain = new UsersBean(loginId, password,"admin");
+						
+						AdministratorConsole admin=new AdministratorConsole(loginId);
+						admin.start();
 						break;
 						
 			case 2:
