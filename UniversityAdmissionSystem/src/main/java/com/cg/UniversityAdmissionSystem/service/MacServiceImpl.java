@@ -39,7 +39,7 @@ public class MacServiceImpl implements IMacService {
 	
 	public static boolean validateScheduledId(String id)
 	{
-		String pattern = "[0-9]{4}";
+		String pattern = "[0-9]{1,5}";
 		if(id.matches(pattern))
 		{
 			return true;
