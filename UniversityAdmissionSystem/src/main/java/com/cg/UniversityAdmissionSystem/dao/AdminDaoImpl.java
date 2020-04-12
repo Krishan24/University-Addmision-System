@@ -3,16 +3,21 @@ package com.cg.UniversityAdmissionSystem.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
+import com.cg.UniversityAdmissionSystem.bean.ParticipantBean;
 import com.cg.UniversityAdmissionSystem.bean.ProgramOfferedBean;
 import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
 
 public class AdminDaoImpl implements IAdminDao{
+	ParticipantBean pb=new ParticipantBean();
 
 	List<ProgramOfferedBean> proOffList=new ArrayList<ProgramOfferedBean>();
 	List<ProgramScheduledBean> proSchList=new ArrayList<ProgramScheduledBean>();
 	List<String> ProNameList = new ArrayList<String>();
+	List<String> ShNameList = new ArrayList<String>();
+	List<ParticipantBean> participantList=new ArrayList<ParticipantBean>();
 	
 	public void addProgramOffered(ProgramOfferedBean pOffered) {
 		proOffList.add(pOffered);
@@ -40,7 +45,7 @@ public class AdminDaoImpl implements IAdminDao{
 	}
 
 	public List<String> getAllProgramName() {
-		Iterator iterator = proSchList.iterator();
+		Iterator iterator = proOffList.iterator();
 		while(iterator.hasNext()){
 			  ProNameList.add(((ProgramOfferedBean) iterator.next()).getProgramName());
 			}
@@ -48,33 +53,40 @@ public class AdminDaoImpl implements IAdminDao{
 	}
 
 	public List<String> getAllScheduleNames() {
-		// TODO Auto-generated method stub
-		return null;
+		Iterator iterator = proSchList.iterator();
+		while(iterator.hasNext()){
+			  ProNameList.add(((ProgramOfferedBean) iterator.next()).getProgramName());
+			}
+		return ShNameList;
+		
 	}
 
-	public List<ApplicationBean> getApplicantsByStatusByScheduledProgramId(String status, String pScheduledId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ParticipantBean> getApplicantsByScheduledProgramId(String pScheduledId) 
+	{
+		
+		List<ParticipantBean> result=participantList.stream().filter((p) -> {
+			return p.getScheduledProgramId().equalsIgnoreCase(pScheduledId);
+		}).collect(Collectors.toList());
+		return new ArrayList<ParticipantBean>(result);
+	
+			
 	}
 
-	public List<ApplicationBean> getApplicantsByScheduledProgramId(String pScheduledId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<ApplicationBean> getAllConfirmedApplicants() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ParticipantBean> getAllConfirmedApplicants() {
+		return participantList;
+		
 	}
 
 	public List<ProgramOfferedBean> getOfferedProgram() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return proOffList;
 	}
 
 	public List<ProgramScheduledBean> getScheduledProgListForProg(String prog) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ProgramScheduledBean> result=proSchList.stream().filter((p) -> {
+			return p.getScheduledProgramId().equalsIgnoreCase(prog);
+		}).collect(Collectors.toList());
+		return new ArrayList<ProgramScheduledBean>(result);
 	}
 
 }
