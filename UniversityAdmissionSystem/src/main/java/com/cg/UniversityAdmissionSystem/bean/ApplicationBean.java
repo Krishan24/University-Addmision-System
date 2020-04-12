@@ -1,98 +1,132 @@
 
 package com.cg.UniversityAdmissionSystem.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class ApplicationBean 
 {
-	private String FName;
-	private String LName;
-	private Date DOB;
-	private String FatherName;
-	private String Email;
-	private String Goals;
-	private double SSC;
-	private double HSC;
-	
-	
-	
-public ApplicationBean(String FName, String LName, Date DOB, String FatherName, String Email, long MobNO, double SSC, double HSC) {
-	
-	this.FName = FName;
-	this.LName = LName;
-	this.DOB = DOB;
-	this.FatherName = FatherName;
-	this.Email = Email;
-	this.Goals = Goals;
-	this.SSC = SSC;
-	this.HSC = HSC;
-	
-	
+	private String applicationId;
+	private String fullName;
+	private LocalDate dateOfBirth;
+	private String highestQualification;
+	private int marksObtained;
+	private String goals;
+	private String emailId;
+	private String scheduledProgramId;
+	private String status;
+	private LocalDate dateOfInterview;
 
-}
+	public ApplicationBean() {
 
+	}
 
-	public String getFName() {
-		return FName;
+	public ApplicationBean(String applicationId, String fullName, LocalDate dateOfBirth, String highestQualification,
+			int marksObtained, String goals, String emailId, String scheduledProgramId, String status,
+			LocalDate dateOfInterview) {
+		super();
+		this.applicationId = applicationId;
+		this.fullName = fullName;
+		this.dateOfBirth = dateOfBirth;
+		this.highestQualification = highestQualification;
+		this.marksObtained = marksObtained;
+		this.goals = goals;
+		this.emailId = emailId;
+		this.scheduledProgramId = scheduledProgramId;
+		this.status = status;
+		this.dateOfInterview = dateOfInterview;
 	}
-	public void setFName(String fName) {
-		FName = fName;
+
+	public String getApplicationId() {
+		return applicationId;
 	}
-	public String getLName() {
-		return LName;
+
+	public void setApplicationId(String applicationId) {
+		this.applicationId = applicationId;
 	}
-	public void setLName(String lName) {
-		LName = lName;
+
+	public String getFullName() {
+		return fullName;
 	}
-	public Date getDOB() {
-		return DOB;
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-	public void setDOB(Date dOB) {
-		DOB = dOB;
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
 	}
-	public String getFatherName() {
-		return FatherName;
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
-	public void setFatherName(String fatherName) {
-		FatherName = fatherName;
+
+	public String getHighestQualification() {
+		return highestQualification;
 	}
-	public String getEmail() {
-		return Email;
+
+	public void setHighestQualification(String highestQualification) {
+		this.highestQualification = highestQualification;
 	}
-	public void setEmail(String email) {
-		Email = email;
+
+	public int getMarksObtained() {
+		return marksObtained;
 	}
+
+	public void setMarksObtained(int marksObtained) {
+		this.marksObtained = marksObtained;
+	}
+
 	public String getGoals() {
-		return Goals;
-	}
-	public void setGoals(String goals) {
-		Goals = goals;
-	}
-	public double getSSC() {
-		return SSC;
-	}
-	public void setSSC(double sSC) {
-		SSC = sSC;
-	}
-	public double getHSC() {
-		return HSC;
-	}
-	public void setHSC(double hSC) {
-		HSC = hSC;
+		return goals;
 	}
 
+	public void setGoals(String goals) {
+		this.goals = goals;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getScheduledProgramId() {
+		return scheduledProgramId;
+	}
+
+	public void setScheduledProgramId(String scheduledProgramId) {
+		this.scheduledProgramId = scheduledProgramId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public LocalDate getDateOfInterview() {
+		return dateOfInterview;
+	}
+
+	public void setDateOfInterview(LocalDate dateOfInterview) {
+		this.dateOfInterview = dateOfInterview;
+	}
 
 	@Override
 	public String toString() {
-		return "ApplicationBean [FName=" + FName + ", LName=" + LName + ", DOB=" + DOB + ", FatherName=" + FatherName
-				+ ", Email=" + Email + ", Goals=" + Goals + ", SSC=" + SSC + ", HSC=" + HSC + "]";
+		return "applicationId = " + applicationId + ", fullName = " + fullName + ", dateOfBirth = " + dateOfBirth
+				+ ", highestQualification = " + highestQualification + ", marksObtained = " + marksObtained
+				+ ", goals = " + goals + ", emailId = " + emailId + ", scheduledProgramId = " + scheduledProgramId
+				+ ", status = " + status + ", dateOfInterview = " + dateOfInterview;
 	}
-	
-	
-	
-	
-	
+
 }
+
 	
 	
 	

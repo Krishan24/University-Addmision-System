@@ -1,3 +1,4 @@
+
 package com.cg.UniversityAdmissionSystem.bean;
 
 public class UsersBean {

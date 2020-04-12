@@ -1,44 +1,85 @@
 package com.cg.UniversityAdmissionSystem.bean;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ProgramScheduledBean 
 {
-	private String shProgramName;
+	private String scheduledProgramId;
+	private String programName;
 	private String location;
-	private Date startDate;
-	private Date endDate;
-	
-	public String getShProgramName() {
-		return shProgramName;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	private int sessionsPerWeek;
+
+	ProgramScheduledBean() {
+
 	}
-	public void setShProgramName(String programName) {
-		this.shProgramName = programName;
+
+	public ProgramScheduledBean(String scheduledProgramId, String programName, String location, LocalDate startDate,
+			LocalDate endDate, int sessionsPerWeek) {
+		super();
+		this.scheduledProgramId = scheduledProgramId;
+		this.programName = programName;
+		this.location = location;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.sessionsPerWeek = sessionsPerWeek;
 	}
+
+	public String getScheduledProgramId() {
+		return scheduledProgramId;
+	}
+
+	public void setScheduledProgramId(String scheduledProgramId) {
+		this.scheduledProgramId = scheduledProgramId;
+	}
+
+	public String getProgramName() {
+		return programName;
+	}
+
+	public void setProgramName(String programName) {
+		this.programName = programName;
+	}
+
 	public String getLocation() {
 		return location;
 	}
+
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Date getStartDate() {
+
+	public LocalDate getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+
+	public LocalDate getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
+
+	public int getSessionsPerWeek() {
+		return sessionsPerWeek;
+	}
+
+	public void setSessionsPerWeek(int sessionsPerWeek) {
+		this.sessionsPerWeek = sessionsPerWeek;
+	}
+
 	@Override
 	public String toString() {
-		return "ScheduledProgram [programName=" + shProgramName + ", location=" + location + ", startDate=" + startDate
-				+ ", endDate=" + endDate + "]";
+		return "scheduledProgramId = " + scheduledProgramId + ", programName = " + programName + ", location = "
+				+ location + ", startDate = " + startDate + ", endDate = " + endDate + ", sessionsPerWeek = "
+				+ sessionsPerWeek;
 	}
-	
-	
 
 }
