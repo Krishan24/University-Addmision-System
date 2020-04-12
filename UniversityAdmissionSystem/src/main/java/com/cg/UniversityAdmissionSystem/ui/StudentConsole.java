@@ -25,8 +25,9 @@ public class StudentConsole
 		String fname,dob,email,highestQualification, goals;
 		
 		boolean flag = true, flag1=true;
-		LocalDate dateOfBirth=null;
-		double marksObtained;
+		LocalDate dateOfBirth=null; LocalDate dateOfInterview = null;
+		double marksObtained=0.0;
+		int applicationId = 0;
 		
 		
 		int choice = -1;
@@ -154,7 +155,7 @@ public class StudentConsole
 					
 					if(programScheduled.isEmpty()){
 						System.out.println("No program Available");
-						continue;
+//						continue;
 					}
 					
 					for (ProgramScheduledBean pBean : programScheduled)
@@ -185,33 +186,99 @@ public class StudentConsole
 								if("1".equals(scr.next())) {
 									flag= true;
 									System.out.println("Enter program scheduled ID from the above table");
-								}else {
+								}else 
 									flag=false;
-								}
 							}
+						}	
 							
 						}while(flag=false);
-						if(!flag1) {
-							break;
-						}
+						if(!flag1) 
+						break;	
+						
+					
 						
 						ApplicationBean applicationbean = new ApplicationBean();
 						applicationbean.setFullName(fname);
-						applicationbean.
-						applicationbean
-						applicationbean
-						applicationbean
-						applicationbean
-						applicationbean
-					}
+						applicationbean.setDateOfBirth(dateOfBirth);
+						applicationbean.setEmailId(email); 
+						applicationbean.setHighestQualification(highestQualification);
+						applicationbean.setMarksObtained(marksObtained);
+						applicationbean.setGoals(goals);
+						applicationbean.setScheduledProgramId(scheduledProgramId);
+						dateOfInterview = LocalDate.parse("2020-12-12");
+						applicationbean.setDateOfInterview(dateOfInterview);
+						applicationId=appServices.addDetail(applicationbean);
+						System.out.println("Successfully applied. Your Application Id is :" +applicationId);
+				break;
 					
 					
-				
+							
 					
+						
+						case 3:
+							do {
+							System.out.println("Enter your Application Id");
+							try
+							{
+								applicationId = scr.nextInt();
+								applicationbean = appServices.showStatus(applicationId);
+								if(applicationbean!=null) {
+									flag1 = true;
+									LocalDate checkDoi = LocalDate.parse("2021-05-01");
+									if(applicationbean.getDateOfInterview().equals(checkDoi)) {
+										System.out.println("Status:" +applicationbean.getStatus());
+									}else
+									{
+										System.out.println("Status:"+applicationbean.getStatus());
+										System.out.println("Date of Interview :" +applicationbean.getDateOfInterview());
+									}
+								}else {
+									flag1=true;
+									System.out.println("Data not found");
+								}
+								
+								
+							}catch(Exception e) {
+								flag1=false;
+								System.out.println("Value should be in integer and length should be less than 10" );
+								scr.hasNextLine();
+							}
+							
+							
+					}while(flag1==false);
+					break;
+					
+					
+					
+					
+						default :	
+						
+							if(choice!=4) {
+								if(choice<1  || choice>4) {
+									System.out.println("Please enter a Valid Number");
+								}
+								System.out.println("Do You Want to continue : \nPress 1  to continue\nAny Other key to exit ");
+								String decision = scr.next();
+								if(!("1".equals(decision))) {
+									System.out.println("Successfully Logged Out.\\n Thanks For Visting...");
+									choice=4;
+								}
+								
+							}else 
+								System.out.println("Successfully Logged Out.\n Thanks For Visting");
+							break;
+		
+					
+					
+			
 		}
-	}
+	while(choice!=4);
+	
+	
+
 }
-				
+}
+
 	
 	
 					

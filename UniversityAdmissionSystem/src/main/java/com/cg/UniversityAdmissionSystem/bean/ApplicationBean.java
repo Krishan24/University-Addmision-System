@@ -9,7 +9,7 @@ public class ApplicationBean
 	private String fullName;
 	private LocalDate dateOfBirth;
 	private String highestQualification;
-	private int marksObtained;
+	private double marksObtained;
 	private String goals;
 	private String emailId;
 	private String scheduledProgramId;
@@ -68,11 +68,11 @@ public class ApplicationBean
 		this.highestQualification = highestQualification;
 	}
 
-	public int getMarksObtained() {
+	public double getMarksObtained() {
 		return marksObtained;
 	}
 
-	public void setMarksObtained(int marksObtained) {
+	public void setMarksObtained(double marksObtained) {
 		this.marksObtained = marksObtained;
 	}
 

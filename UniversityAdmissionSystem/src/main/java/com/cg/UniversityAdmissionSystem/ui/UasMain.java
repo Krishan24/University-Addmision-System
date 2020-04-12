@@ -48,7 +48,7 @@ public class UasMain {
 						UsersBean userBeanMain = new UsersBean(loginId, password,"admin");
 						
 						AdministratorConsole admin=new AdministratorConsole(loginId);
-						admin.start();
+//						admin.start();
 						break;
 						
 			case 2:
@@ -61,12 +61,12 @@ public class UasMain {
 			case 3:
 				
 						System.out.println("Welcome to University Admission System");
+						StudentConsole sc = new StudentConsole();
 						break;
 						
 			case 4:
 				
 						System.out.println("Thanks for visiting!!!");
-						StudentConsole sc = new StudentConsole();
 						break;
 							
 			}

@@ -4,7 +4,7 @@ public class ParticipantBean {
 
 	private String rollNo;
 	private String emailId;
-	private String ApplicationId;
+	private String applicationId;
 	private String scheduledProgramId;
 
 	public ParticipantBean() {
@@ -15,7 +15,7 @@ public class ParticipantBean {
 		super();
 		this.rollNo = rollNo;
 		this.emailId = emailId;
-		ApplicationId = applicationId;
+		applicationId = applicationId;
 		this.scheduledProgramId = scheduledProgramId;
 	}
 
@@ -36,11 +36,11 @@ public class ParticipantBean {
 	}
 
 	public String getApplicationId() {
-		return ApplicationId;
+		return applicationId;
 	}
 
 	public void setApplicationId(String applicationId) {
-		ApplicationId = applicationId;
+		applicationId = applicationId;
 	}
 
 	public String getScheduledProgramId() {
@@ -53,7 +53,7 @@ public class ParticipantBean {
 
 	@Override
 	public String toString() {
-		return "Participant [rollNo=" + rollNo + ", emailId=" + emailId + ", ApplicationId=" + ApplicationId
+		return "Participant [rollNo=" + rollNo + ", emailId=" + emailId + ", ApplicationId=" + applicationId
 				+ ", scheduledProgramId=" + scheduledProgramId + "]";
 	}
 
