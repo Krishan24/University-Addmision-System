@@ -1,5 +1,5 @@
 package com.cg.UniversityAdmissionSystem.exception;
 
-public class NameException {
+public class UniversityException {
 
 }

@@ -78,7 +78,7 @@ public class StudentConsole
 				while(flag==false);
 				
 				
-
+			
 				
 				do
 				{
