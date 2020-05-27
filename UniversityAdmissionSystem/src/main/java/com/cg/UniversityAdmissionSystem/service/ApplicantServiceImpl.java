@@ -10,12 +10,12 @@ import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
 import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
 import com.cg.UniversityAdmissionSystem.dao.AdminDaoImpl;
 import com.cg.UniversityAdmissionSystem.dao.ApplicationDaoImpl;
-import com.cg.UniversityAdmissionSystem.dao.ProgramsScheduledDaoImpl;
+
 import com.cg.UniversityAdmissionSystem.exception.ApplicationAlreadyExistsException;
 import com.cg.UniversityAdmissionSystem.exception.InvalidProgramException;
 import com.cg.UniversityAdmissionSystem.exception.NoProgramsAvailableException;
 import com.cg.UniversityAdmissionSystem.exception.NoSuchApplication;
-import com.cg.uas.bean.Application;
+
 
 
 public class ApplicantServiceImpl implements IApplicanttService{
@@ -27,7 +27,7 @@ public class ApplicantServiceImpl implements IApplicanttService{
 	
 	
 	@Override
-	public ArrayList<ProgramScheduledBean> getScheduledProgramList();{
+	public ArrayList<ProgramScheduledBean> getScheduledProgramList() throws NoProgramsAvailableException{
 		ArrayList<ProgramScheduledBean> result = adimpl.reportAllScheduledProgram();
 		if(result == null) {
 			throw new NoProgramsAvailableException();
@@ -38,8 +38,8 @@ public class ApplicantServiceImpl implements IApplicanttService{
 	}
 	
 	@Override
-	int applyOnline(Application a) throws ApplicationAlreadyExistsException,InvalidProgramException;{
-		ProgramScheduledBean psb = adimpl.readProgramScheduledBean(ab.getScheduledProgramId());
+	public int applyOnline(ApplicationBean ab) throws ApplicationAlreadyExistsException,InvalidProgramException{
+		ProgramScheduledBean psb = adimpl.readProgramsScheduled(ab.getScheduledProgramId());
 		if(psb == null) {
 			throw new InvalidProgramException();
 		}
@@ -55,9 +55,9 @@ public class ApplicantServiceImpl implements IApplicanttService{
 		}
 	}
 	
-	public String applicationStatus(String ApplicationId);{
+	public String applicationStatus(String ApplicationId)throws NoSuchApplication{
 		try {
-			ApplicationBean ab = adi.readApplication(applicationId);
+			ApplicationBean ab = adi.readApplication(ApplicationId);
 			return ab.getStatus();
 		}
 		catch(NoSuchApplication e) {

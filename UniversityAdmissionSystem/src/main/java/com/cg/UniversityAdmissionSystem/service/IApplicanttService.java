@@ -7,8 +7,9 @@ import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
 import com.cg.UniversityAdmissionSystem.bean.ProgramScheduledBean;
 import com.cg.UniversityAdmissionSystem.exception.ApplicationAlreadyExistsException;
 import com.cg.UniversityAdmissionSystem.exception.InvalidProgramException;
+import com.cg.UniversityAdmissionSystem.exception.NoProgramsAvailableException;
 import com.cg.UniversityAdmissionSystem.exception.NoSuchApplication;
-import com.cg.uas.exception.NoProgramsAvailableException;
+
 
 public interface IApplicanttService  
 {
