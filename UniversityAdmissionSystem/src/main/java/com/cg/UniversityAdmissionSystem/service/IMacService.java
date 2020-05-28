@@ -1,18 +1,22 @@
 package com.cg.UniversityAdmissionSystem.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.cg.UniversityAdmissionSystem.bean.ApplicationBean;
+import com.cg.UniversityAdmissionSystem.bean.ParticipantBean;
+import com.cg.UniversityAdmissionSystem.exception.NoSuchApplication;
 
 public interface IMacService {
 
-		public List<Integer> getApplicantId();
-		public List<String> getScheduleId();
-		public List<ApplicationBean> getApplicantOnScheduledId(String scheduledProgramId);
-		public List<ApplicationBean> getApplicantAfterInterviewOnId(String scheduledProgramId);
-		public String updateApplicantStatus(int applicationId, String status);
-		public void updateApplicantDateOfInterview(int applicationId, LocalDate dateOfInterview);
-		public List<String> getscheduleId();
+
+ArrayList<ApplicationBean> applicationsOfProgram(String scheduledProgramId);
+
+	boolean updateApplicationStatus(String applicationId, int status) throws NoSuchApplication;
+
+	boolean scheduleInterview(String applicationId, LocalDate date) throws NoSuchApplication;
+
+	ArrayList<ParticipantBean> getParticipants(String scheduledProgramId);
 		
 }
